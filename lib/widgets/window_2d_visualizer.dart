@@ -951,7 +951,7 @@ class RealisticWindowPainter extends CustomPainter {
     required double mullionThick,
     required String label,
   }) {
-    final int safeSplits = math.max(1, splits);
+    final int safeSplits = math.max<int>(1, splits);
     if (isHorizontalSplits) {
       final double subW = rect.width / safeSplits;
       for (int i = 0; i < safeSplits; i++) {
@@ -1043,7 +1043,7 @@ class RealisticWindowPainter extends CustomPainter {
     required Color frameStroke,
     required double sashThick,
   }) {
-    final int count = math.max(1, sashCount);
+    final int count = math.max<int>(1, sashCount);
     final double sashW = r.width / count;
     final bool isPandaActive =
         hasPanda && (openType.contains('مفصلي') || openType.contains('قلاب'));
@@ -1322,8 +1322,8 @@ class RealisticWindowPainter extends CustomPainter {
     Rect targetCellRect;
 
     Rect computeSubCell(Rect sectionRect, int splits, bool isHorizontalSplits) {
-      final int safeSplits = math.max(1, splits);
-      final int idx = exhaustFanPartIndex.clamp(0, safeSplits - 1);
+      final int safeSplits = math.max<int>(1, splits);
+      final int idx = exhaustFanPartIndex.clamp(0, safeSplits - 1).toInt();
       if (isHorizontalSplits) {
         final double subW = sectionRect.width / safeSplits;
         return Rect.fromLTWH(sectionRect.left + idx * subW, sectionRect.top,

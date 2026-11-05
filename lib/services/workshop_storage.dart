@@ -603,7 +603,7 @@ class WorkshopStorage extends ChangeNotifier {
             role: 'باكتة',
             svgPath: fixedBeadSvg,
             cutLengthCm: subW,
-            totalCount: 2 * math.max(1, item.topFixedSplits) * item.quantity,
+            totalCount: 2 * math.max<int>(1, item.topFixedSplits) * item.quantity,
             dimTag: 'عرض باكتة الثابت',
           );
           addPartCut(
@@ -612,7 +612,7 @@ class WorkshopStorage extends ChangeNotifier {
             role: 'باكتة',
             svgPath: fixedBeadSvg,
             cutLengthCm: subH,
-            totalCount: 2 * math.max(1, item.topFixedSplits) * item.quantity,
+            totalCount: 2 * math.max<int>(1, item.topFixedSplits) * item.quantity,
             dimTag: 'ارتفاع باكتة الثابت',
           );
         }
@@ -648,7 +648,7 @@ class WorkshopStorage extends ChangeNotifier {
             role: 'باكتة',
             svgPath: fixedBeadSvg,
             cutLengthCm: subW,
-            totalCount: 2 * math.max(1, item.bottomFixedSplits) * item.quantity,
+            totalCount: 2 * math.max<int>(1, item.bottomFixedSplits) * item.quantity,
             dimTag: 'عرض باكتة الثابت',
           );
           addPartCut(
@@ -657,7 +657,7 @@ class WorkshopStorage extends ChangeNotifier {
             role: 'باكتة',
             svgPath: fixedBeadSvg,
             cutLengthCm: subH,
-            totalCount: 2 * math.max(1, item.bottomFixedSplits) * item.quantity,
+            totalCount: 2 * math.max<int>(1, item.bottomFixedSplits) * item.quantity,
             dimTag: 'ارتفاع باكتة الثابت',
           );
         }

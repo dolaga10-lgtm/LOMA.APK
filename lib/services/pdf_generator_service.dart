@@ -130,13 +130,13 @@ class PdfGeneratorService {
 
     const int itemsPerPage = 6;
     final int totalPages =
-        math.max(1, (client.items.length / itemsPerPage).ceil());
+        math.max<int>(1, (client.items.length / itemsPerPage).ceil());
     final List<Uint8List> pages = [];
 
     for (int pageIdx = 0; pageIdx < totalPages; pageIdx++) {
       final int startIdx = pageIdx * itemsPerPage;
       final int endIdx =
-          math.min(client.items.length, startIdx + itemsPerPage);
+          math.min<int>(client.items.length, startIdx + itemsPerPage);
       final pageItems = client.items.isEmpty
           ? <ClientWindowItem>[]
           : client.items.sublist(startIdx, endIdx);
@@ -748,7 +748,7 @@ class PdfGeneratorService {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.4;
 
-    final int glassRowCount = math.max(1, allGlassPieces.length);
+    final int glassRowCount = math.max<int>(1, allGlassPieces.length);
     final double reservedForGlass =
         math.min(600.0, 90.0 + (glassRowCount * 35.0));
     final double maxProfilesEndY = canvasH - reservedForGlass - 26.0;

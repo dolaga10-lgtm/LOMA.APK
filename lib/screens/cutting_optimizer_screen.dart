@@ -328,7 +328,7 @@ class _CuttingOptimizerScreenState extends State<CuttingOptimizerScreen>
                             children: [
                               ...plan.cutsCm.map((cut) {
                                 final int flexVal =
-                                    ((cut / stockLen) * 1000).round().clamp(20, 1000);
+                                    ((cut / stockLen) * 1000).round().clamp(20, 1000).toInt();
                                 return Expanded(
                                   flex: flexVal,
                                   child: Container(
@@ -351,7 +351,7 @@ class _CuttingOptimizerScreenState extends State<CuttingOptimizerScreen>
                                 Expanded(
                                   flex: ((plan.wasteLengthCm / stockLen) * 1000)
                                       .round()
-                                      .clamp(25, 1000),
+                                      .clamp(25, 1000).toInt(),
                                   child: Container(
                                     color: const Color(0xFFEF4444),
                                     alignment: Alignment.center,

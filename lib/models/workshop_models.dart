@@ -467,7 +467,7 @@ class SectorProfile {
 
     // 2. زجاج الثابت العلوي (إن وجد)
     if (item.hasTopFixed && item.topFixedHeightCm > 0) {
-      final int splits = math.max(1, item.topFixedSplits);
+      final int splits = math.max<int>(1, item.topFixedSplits);
       final double topGw = calculateFixedPaneGlassWidth(item.widthCm, splits);
       final double topGh = calculateFixedPaneGlassHeight(item.topFixedHeightCm, 1);
       final bool fanHere = item.hasExhaustFan &&
@@ -485,7 +485,7 @@ class SectorProfile {
           isDoubleGlass: item.isDoubleGlass,
           glassDescription: glassDesc,
           notes: fanHere
-              ? 'الجزء رقم ${math.min(splits, item.exhaustFanPartIndex + 1)} به فتحة شفاط (${item.exhaustFanDiameterCm.toStringAsFixed(0)} سم)'
+              ? 'الجزء رقم ${math.min<int>(splits, item.exhaustFanPartIndex + 1)} به فتحة شفاط (${item.exhaustFanDiameterCm.toStringAsFixed(0)} سم)'
               : '',
         ),
       );
@@ -493,7 +493,7 @@ class SectorProfile {
 
     // 3. زجاج الثابت السفلي (إن وجد)
     if (item.hasBottomFixed && item.bottomFixedHeightCm > 0) {
-      final int splits = math.max(1, item.bottomFixedSplits);
+      final int splits = math.max<int>(1, item.bottomFixedSplits);
       final double botGw = calculateFixedPaneGlassWidth(item.widthCm, splits);
       final double botGh = calculateFixedPaneGlassHeight(item.bottomFixedHeightCm, 1);
       final bool fanHere = item.hasExhaustFan &&
@@ -511,7 +511,7 @@ class SectorProfile {
           isDoubleGlass: item.isDoubleGlass,
           glassDescription: glassDesc,
           notes: fanHere
-              ? 'الجزء رقم ${math.min(splits, item.exhaustFanPartIndex + 1)} به فتحة شفاط (${item.exhaustFanDiameterCm.toStringAsFixed(0)} سم)'
+              ? 'الجزء رقم ${math.min<int>(splits, item.exhaustFanPartIndex + 1)} به فتحة شفاط (${item.exhaustFanDiameterCm.toStringAsFixed(0)} سم)'
               : '',
         ),
       );
@@ -519,7 +519,7 @@ class SectorProfile {
 
     // 4. زجاج الثابت اليمين (إن وجد)
     if (item.hasRightFixed && item.rightFixedWidthCm > 0) {
-      final int splits = math.max(1, item.rightFixedSplits);
+      final int splits = math.max<int>(1, item.rightFixedSplits);
       final double rightGw = calculateFixedPaneGlassWidth(item.rightFixedWidthCm, 1);
       final double rightGh =
           calculateFixedPaneGlassHeight(item.netOperableHeightCm, splits);
@@ -538,7 +538,7 @@ class SectorProfile {
           isDoubleGlass: item.isDoubleGlass,
           glassDescription: glassDesc,
           notes: fanHere
-              ? 'الجزء رقم ${math.min(splits, item.exhaustFanPartIndex + 1)} به فتحة شفاط (${item.exhaustFanDiameterCm.toStringAsFixed(0)} سم)'
+              ? 'الجزء رقم ${math.min<int>(splits, item.exhaustFanPartIndex + 1)} به فتحة شفاط (${item.exhaustFanDiameterCm.toStringAsFixed(0)} سم)'
               : '',
         ),
       );
@@ -546,7 +546,7 @@ class SectorProfile {
 
     // 5. زجاج الثابت الشمال (إن وجد)
     if (item.hasLeftFixed && item.leftFixedWidthCm > 0) {
-      final int splits = math.max(1, item.leftFixedSplits);
+      final int splits = math.max<int>(1, item.leftFixedSplits);
       final double leftGw = calculateFixedPaneGlassWidth(item.leftFixedWidthCm, 1);
       final double leftGh =
           calculateFixedPaneGlassHeight(item.netOperableHeightCm, splits);
@@ -565,7 +565,7 @@ class SectorProfile {
           isDoubleGlass: item.isDoubleGlass,
           glassDescription: glassDesc,
           notes: fanHere
-              ? 'الجزء رقم ${math.min(splits, item.exhaustFanPartIndex + 1)} به فتحة شفاط (${item.exhaustFanDiameterCm.toStringAsFixed(0)} سم)'
+              ? 'الجزء رقم ${math.min<int>(splits, item.exhaustFanPartIndex + 1)} به فتحة شفاط (${item.exhaustFanDiameterCm.toStringAsFixed(0)} سم)'
               : '',
         ),
       );
@@ -1031,17 +1031,17 @@ class ClientWindowItem {
     double partW = widthCm;
     double partH = topFixedHeightCm;
     if (exhaustFanPosition.contains('العلوي')) {
-      partW = widthCm / math.max(1, topFixedSplits);
+      partW = widthCm / math.max<int>(1, topFixedSplits);
       partH = topFixedHeightCm;
     } else if (exhaustFanPosition.contains('السفلي')) {
-      partW = widthCm / math.max(1, bottomFixedSplits);
+      partW = widthCm / math.max<int>(1, bottomFixedSplits);
       partH = bottomFixedHeightCm;
     } else if (exhaustFanPosition.contains('اليمين')) {
       partW = rightFixedWidthCm;
-      partH = netOperableHeightCm / math.max(1, rightFixedSplits);
+      partH = netOperableHeightCm / math.max<int>(1, rightFixedSplits);
     } else if (exhaustFanPosition.contains('الشمال')) {
       partW = leftFixedWidthCm;
-      partH = netOperableHeightCm / math.max(1, leftFixedSplits);
+      partH = netOperableHeightCm / math.max<int>(1, leftFixedSplits);
     }
     final double minFixedDim = math.min(partW, partH);
     final double netInnerGlassDim = minFixedDim - fixedDeductCm;
@@ -1055,17 +1055,17 @@ class ClientWindowItem {
     double partW = widthCm;
     double partH = topFixedHeightCm;
     if (exhaustFanPosition.contains('العلوي')) {
-      partW = widthCm / math.max(1, topFixedSplits);
+      partW = widthCm / math.max<int>(1, topFixedSplits);
       partH = topFixedHeightCm;
     } else if (exhaustFanPosition.contains('السفلي')) {
-      partW = widthCm / math.max(1, bottomFixedSplits);
+      partW = widthCm / math.max<int>(1, bottomFixedSplits);
       partH = bottomFixedHeightCm;
     } else if (exhaustFanPosition.contains('اليمين')) {
       partW = rightFixedWidthCm;
-      partH = netOperableHeightCm / math.max(1, rightFixedSplits);
+      partH = netOperableHeightCm / math.max<int>(1, rightFixedSplits);
     } else if (exhaustFanPosition.contains('الشمال')) {
       partW = leftFixedWidthCm;
-      partH = netOperableHeightCm / math.max(1, leftFixedSplits);
+      partH = netOperableHeightCm / math.max<int>(1, leftFixedSplits);
     }
     return math.max(10.0, math.min(partW, partH) - fixedDeductCm);
   }

@@ -374,8 +374,8 @@ class _WindowDesignerScreenState extends State<WindowDesignerScreen>
     final double priceM2 = double.tryParse(_pricePerM2Ctrl.text.trim()) ??
         _selectedSector.pricePerSquareMeter;
 
-    final int maxFanPart = math.max(0, _activeExhaustFixedSplits() - 1);
-    final int safeFanPartIdx = _exhaustFanPartIndex.clamp(0, maxFanPart);
+    final int maxFanPart = math.max<int>(0, _activeExhaustFixedSplits() - 1);
+    final int safeFanPartIdx = _exhaustFanPartIndex.clamp(0, maxFanPart).toInt();
     final double baselineBrownPrice =
         widget.storage.defaultBaselineBrownGlass.pricePerSquareMeter;
 
